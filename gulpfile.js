@@ -10,9 +10,9 @@ const diff = require('./scripts/diff');
 const args = require('minimist')(process.argv.slice(2));
 const defaultLang = 'en';
 const lang = args.lang || defaultLang;
-const backupFolder = path.resolve(__dirname, `.backup/${lang}`);
-const dataFolder = path.resolve(__dirname, `.data/${lang}`);
-const sourceFolder = path.resolve(__dirname, `src/source/${lang}`);
+const backupFolder = path.resolve(__dirname, `.backup`);
+const dataFolder = path.resolve(__dirname, `.data`);
+const sourceFolder = path.resolve(__dirname, `src/source`);
 // 根据环境变量确定当前的环境
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -81,7 +81,7 @@ function transformSingle(source) {
   return gulp
     .src(`src/source/en/${source}.js`)
     .pipe(transformEsModuleToJson())
-    .pipe(gulp.dest(`.data/${lang}`));
+    .pipe(gulp.dest(`.data`));
 }
 
 function cleanBackup() {

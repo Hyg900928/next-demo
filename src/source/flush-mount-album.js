@@ -1,7 +1,7 @@
 
 const components = [
     {
-        text: 'section1ssssssss',
+        text: 'section1 hello world',
         id: '1'
     },
     {
